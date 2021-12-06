@@ -1,0 +1,50 @@
+<div class="modal-profil" [class.open]="open">
+  <div class="modal-content">
+    <button class="btn btn-close" (click)="onClose()">
+      <i class="mdi mdi-arrow-left-thick"></i>
+    </button>
+    <div class="col-md-6">
+      <h2 class="title">Modifier votre profil</h2>
+      <form class="form-profil" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label form="age">Age</label>
+          <input
+            class="form-control"
+            id="age"
+            type="text"
+            formControlName="age"
+          />
+        </div>
+        <div class="form-group">
+          <label form="famille">Famille</label>
+          <input
+            class="form-control"
+            id="famille"
+            type="text"
+            formControlName="famille"
+          />
+        </div>
+        <div class="form-group">
+          <label form="race">Race</label>
+          <input
+            class="form-control"
+            id="race"
+            type="text"
+            formControlName="race"
+          />
+        </div>
+        <div class="form-group">
+          <label form="race">Nourriture</label>
+          <input
+            class="form-control"
+            id="nourriture"
+            type="text"
+            formControlName="nourriture"
+          />
+        </div>
+
+        <button class="btn btn-primary mt-4">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+</div>

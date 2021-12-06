@@ -1,0 +1,48 @@
+<div class="auth-page">
+  <div class="page-content">
+    <h4 class="page-title">S'inscrire</h4>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input
+          type="email"
+          class="form-control"
+          id="username"
+          formControlName="username"
+          placeholder="Nom d'utilisateur"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+          placeholder="Mot de passe"
+        />
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirmez le mot de passe </label>
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+          placeholder="Confimez le mot de passe"
+        />
+      </div>
+      <button
+        class="btn btn-primary mr-2"
+        type="submit"
+        [disabled]="registerForm.invalid"
+      >
+        S'inscrire
+      </button>
+      ou <a [routerLink]="['/login']">Se connecter à un compte existant</a>
+    </form>
+  </div>
+</div>

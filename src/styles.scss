@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Bangers, sans-serif !important;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border-radius: 50px !important;
+  background: transparent;
+  outline: none;
+}
+
+.mdi-spin {
+    font-size: 25px;
+    color: rgb(119, 169, 245)
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+@import "./assets/styles/auth";
+@import "./assets/styles/material-icons";

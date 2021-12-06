@@ -1,0 +1,20 @@
+<div class="profil-content">
+  <h3 class="profil-title">Bonjour {{ user.username }}</h3>
+  <p class=""><i class="mdi mdi-clock"></i> {{ user.createdAt | date }}</p>
+  <p>Age : {{ user.age }}</p>
+  <p>Famille : {{ user.famille }}</p>
+  <p>Race : {{ user.race }}</p>
+  <p>Nourriture : {{ user.nourriture }}</p>
+  <button class="btn btn-primary mr-2" (click)="updateProfile = true">
+    Modifier
+  </button>
+  <button class="btn" (click)="logout()">
+    <i class="mdi mdi-logout"></i> Déconnexion
+  </button>
+  <app-update-profil
+    [open]="updateProfile"
+    [user]="user"
+    (onChange)="onChange($event)"
+    (close)="onUpdateClose()"
+  ></app-update-profil>
+</div>

@@ -1,0 +1,36 @@
+<div class="page-content">
+  <div class="friend-list">
+    <div class="mdi mdi-spin mdi-loading" *ngIf="loading; else data"></div>
+    <ng-template #data>
+      <div class="card" *ngFor="let user of users; let i = index">
+        <div class="card-header">
+          <h3 class="title">{{ user.username }}</h3>
+          <div
+            class="mdi mdi-spin mdi-loading"
+            *ngIf="followLoading === i; else isLoaded"
+          ></div>
+          <ng-template #isLoaded>
+            <button
+              class="btn btn-light"
+              (click)="unFollowClick(user._id, i)"
+              *ngIf="isFollow(user._id); else follow"
+            >
+              <i class="mdi mdi-check"></i> Suivi
+            </button>
+            <ng-template #follow>
+              <button class="btn btn-primary" (click)="followClick(user._id, i)">
+                + Suivre
+              </button>
+            </ng-template>
+          </ng-template>
+        </div>
+        <div class="card-body">
+          <p>Age : {{ user.age }}</p>
+          <p>Famille : {{ user.famille }}</p>
+          <p>Race : {{ user.race }}</p>
+          <p>Nourriture : {{ user.nourriture }}</p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

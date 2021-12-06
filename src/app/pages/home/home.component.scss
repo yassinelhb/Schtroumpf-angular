@@ -1,0 +1,20 @@
+.friend-list {
+  .card {
+    border: 2px solid rgb(166, 178, 245);
+    background-color: rgb(239, 241, 248);
+    margin-bottom: 25px;
+    border-radius: 10px;
+
+    .card-header {
+      background: transparent;
+      display: flex;
+      align-items: center;
+      border-bottom: transparent;
+
+      .title {
+        margin: 0;
+        margin-right: 15px;
+      }
+    }
+  }
+}
