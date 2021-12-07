@@ -7,6 +7,12 @@ import { AuthService } from './auth.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  withCredentials: true,
+};
+
+type TForm = {
+  username: string;
+  password: string;
 };
 
 @Injectable({
@@ -26,6 +32,10 @@ export class UserService {
 
   getUserProfile(userId: string) {
     return this.http.get<User>(`${apiUrl}api/users/${userId}`, httpOptions);
+  }
+
+  create(user: TForm) {
+    return this.http.post<User>(`${apiUrl}api/users`, user, httpOptions);
   }
 
   updateProfile(user: User) {

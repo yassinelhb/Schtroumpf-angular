@@ -18,10 +18,16 @@
               <i class="mdi mdi-check"></i> Suivi
             </button>
             <ng-template #follow>
-              <button class="btn btn-primary" (click)="followClick(user._id, i)">
+              <button
+                class="btn btn-primary"
+                (click)="followClick(user._id, i)"
+              >
                 + Suivre
               </button>
             </ng-template>
+            <button class="btn btn-success" (click)="AddFriend()">
+              + Ajouter
+            </button>
           </ng-template>
         </div>
         <div class="card-body">
@@ -32,5 +38,6 @@
         </div>
       </div>
     </ng-template>
+    <app-add-friend [open]="addUser" (closeEmitter)="onClose($event)"></app-add-friend>
   </div>
 </div>

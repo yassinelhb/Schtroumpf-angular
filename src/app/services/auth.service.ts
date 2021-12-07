@@ -7,6 +7,7 @@ import { apiUrl } from 'config';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  withCredentials: true,
 };
 
 type TForm = {
@@ -44,6 +45,10 @@ export class AuthService {
     return JSON.parse(localStorage.getItem('currentUser') || '');
   }
 
+  checkJwt() {
+    return this.http.get<string>(`${apiUrl}jwtid`, httpOptions);
+  }
+
   logout() {
     this.http.get<any>(`${apiUrl}api/auth/logout`);
     localStorage.removeItem('currentUser');
@@ -51,7 +56,7 @@ export class AuthService {
   }
 
   get isLoggedIn(): boolean {
-    const authToken = localStorage.getItem("currentUser");
+    const authToken = localStorage.getItem('currentUser');
     return authToken !== null ? true : false;
   }
 }

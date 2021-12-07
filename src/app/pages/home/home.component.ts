@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class HomeComponent implements OnInit {
   @Input() user: any;
   @Output() onChangeFriends = new EventEmitter<[]>();
+  addUser: boolean = false;
   users: User[] = [];
   loading: boolean = false;
   followLoading: number = -1;
@@ -38,7 +39,6 @@ export class HomeComponent implements OnInit {
   followClick(userId: string, index: number) {
     this.followLoading = index;
     this.userService.follow(userId).subscribe((res) => {
-
       this.onChangeFriends.emit(res.friends);
 
       this.followLoading = -1;
@@ -56,5 +56,14 @@ export class HomeComponent implements OnInit {
 
   isFollow(userId: string) {
     return this.user.friends.some((friendId: string) => friendId === userId);
+  }
+
+  AddFriend() {
+    this.addUser = true;
+  }
+
+  onClose(user?: any) {
+    this.addUser = false;
+    this.users.push(user);
   }
 }

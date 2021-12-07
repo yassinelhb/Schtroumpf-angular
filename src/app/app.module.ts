@@ -12,6 +12,7 @@ import { CommonComponent } from './components/common/common.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { UpdateProfilComponent } from './components/profil/update-profil/update-profil.component';
+import { AddFriendComponent } from './pages/add-friend/add-friend.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UpdateProfilComponent } from './components/profil/update-profil/update-
     HomeComponent,
     ProfilComponent,
     UpdateProfilComponent,
+    AddFriendComponent,
   ],
   imports: [
     BrowserModule,
